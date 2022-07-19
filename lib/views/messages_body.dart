@@ -19,7 +19,7 @@ class _MessageBodyState extends State<MessageBody> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
                   selected: false,
                   label: Text('News'),
                   onSelected: (bool value) {},
@@ -27,25 +27,23 @@ class _MessageBodyState extends State<MessageBody> {
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
                   selected: true,
-                  avatar: Icon(Icons.done),
                   label: Text('Book'),
                   onSelected: (bool value) {},
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
                   selected: true,
-                  avatar: Icon(Icons.done),
                   label: Text('Games'),
                   onSelected: (bool value) {},
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
                   selected: false,
                   label: Text('Messages'),
                   onSelected: (bool value) {},
@@ -58,7 +56,7 @@ class _MessageBodyState extends State<MessageBody> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
                   selected: false,
                   label: Text('People'),
                   onSelected: (bool value) {},
@@ -66,10 +64,10 @@ class _MessageBodyState extends State<MessageBody> {
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: ChoiceChip(
+                child: FilterChip(
+                  onSelected: null,
                   selected: false,
                   label: Text('City'),
-                  onSelected: (bool value) {},
                 ),
               ),
             ],

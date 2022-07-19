@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:themes/business/ChangeThemeNotifier.dart';
 
 import 'pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -23,8 +24,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: Provider.of<ChangeThemeNotifier>(context).currentTheme,
       title: widget.title,
       home: Scaffold(
+        appBar: AppBar(
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: GestureDetector(
+                onTap: () {
+                  Provider.of<ChangeThemeNotifier>(context, listen: false)
+                      .toggleThemes();
+                },
+                child: Icon(Icons.file_download_outlined),
+              ),
+            )
+          ],
+          title: Text(widget.title),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -36,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 label: 'Messages',
                 icon: Icon(
-                  Icons.email_outlined,
+                  Icons.email,
                   semanticLabel: 'Messages',
                 )),
             BottomNavigationBarItem(
@@ -48,15 +66,6 @@ class _HomePageState extends State<HomePage> {
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
-        ),
-        appBar: AppBar(
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Icon(Icons.file_download_outlined),
-            )
-          ],
-          title: Text(widget.title),
         ),
         body: pages.elementAt(_selectedIndex),
       ),

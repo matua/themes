@@ -18,8 +18,10 @@ class _ProfileBodyState extends State<ProfileBody> {
           _showAlertDialog(context);
         },
         child: CircleAvatar(
+          backgroundColor: Theme.of(context).primaryColor,
+          foregroundColor: Theme.of(context).textTheme.titleSmall?.color,
           child: Text('АВ'),
-          radius: 50,
+          radius: 35,
         ),
       ),
     );

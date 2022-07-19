@@ -24,8 +24,10 @@ class _HomeBodyState extends State<HomeBody> {
                 width: MediaQuery.of(context).size.width / 2,
                 child: TextField(
                   decoration: InputDecoration(
-                      hintText: 'Поиск товаров',
-                      suffixIcon: Icon(Icons.search)),
+                      labelText: 'Поиск товаров',
+                      suffixIcon: Icon(
+                        Icons.search,
+                      )),
                 )),
             ElevatedButton(
               onPressed: () {},
@@ -33,27 +35,31 @@ class _HomeBodyState extends State<HomeBody> {
             ),
           ],
         ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: CircularProgressIndicator(),
+        ),
         Expanded(
           child: GridView.builder(
+            key: PageStorageKey<String>('pageOne'),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
               return Card(
+                clipBehavior: Clip.hardEdge,
+                margin: EdgeInsets.all(8),
                 key: Key(index.toString()),
                 child: Column(
+                  key: UniqueKey(),
                   children: <Widget>[
                     Image.asset('images/card.png'),
-                    SizedBox(
-                      height: 50,
-                      child: Padding(
-                          padding: EdgeInsets.all(7),
-                          child: Text('Краткое описание карточки')),
-                    ),
+                    Padding(
+                        padding: EdgeInsets.all(7),
+                        child: Text('Краткое описание карточки')),
                   ],
                 ),
               );
             },
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              childAspectRatio: 1,
               maxCrossAxisExtent: 200,
             ),
           ),
