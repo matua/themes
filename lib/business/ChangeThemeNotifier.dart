@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../views/theme_data_styles/theme_data_chooser.dart';
+import '../views/theme_data_styles/theme_data_styles.dart';
 
 enum ThemeChoice { main, orange }
 

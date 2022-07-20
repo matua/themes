@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themes/views/theme_data_styles/main_orange_palette.dart';
 
 class ThemeDataStyles {
   static Color? mainOrange = Colors.deepOrange[200];
@@ -41,20 +42,12 @@ class ThemeDataStyles {
       textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.blue),
       progressIndicatorTheme: ProgressIndicatorThemeData(color: grey),
       inputDecorationTheme: InputDecorationTheme(
-        focusColor: mainOrange,
         floatingLabelStyle: TextStyle(color: mainOrange),
-        // iconColor: mainOrange,
-        focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-          color: mainOrange as Color,
-        )),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: grey,
-        selectedItemColor: mainOrange,
       ),
-      primaryColor: mainOrange,
-      primarySwatch: Colors.deepOrange,
+      primarySwatch: MainOrangePalette.mainOrange,
       chipTheme: ChipThemeData(
         disabledColor: Colors.grey[400],
         backgroundColor: grey,
@@ -66,7 +59,8 @@ class ThemeDataStyles {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       cardTheme: CardTheme(
-        color: mainOrange,
+        margin: EdgeInsets.all(12),
+        color: Colors.deepOrange[100],
         shadowColor: grey,
         elevation: 10,
         shape: RoundedRectangleBorder(

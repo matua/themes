@@ -46,7 +46,6 @@ class _HomeBodyState extends State<HomeBody> {
             itemBuilder: (BuildContext context, int index) {
               return Card(
                 clipBehavior: Clip.hardEdge,
-                margin: EdgeInsets.all(8),
                 key: Key(index.toString()),
                 child: Column(
                   key: UniqueKey(),
